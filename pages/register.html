@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account — Velvet Vogue</title>
+  <meta name="description" content="Join Velvet Vogue for free — get early access to new collections, exclusive member discounts and personalised style recommendations.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <main id="main-content" class="auth-page">
+
+    <!-- Visual Panel -->
+    <div class="auth-visual" aria-hidden="true">
+      <div class="auth-visual__bg"></div>
+      <div class="auth-visual__content">
+        <p class="auth-visual__quote">"Fashion is the armour to survive the reality of everyday life."</p>
+        <p class="auth-visual__attr">— Bill Cunningham</p>
+      </div>
+    </div>
+
+    <!-- Form Panel -->
+    <div class="auth-form-side">
+      <a href="../index.html" class="auth-brand" aria-label="Return to Velvet Vogue homepage">Velvet Vogue</a>
+
+      <h1 class="auth-title">Create your account</h1>
+      <p class="auth-sub">
+        Already a member? <a href="login.html">Sign in</a>
+      </p>
+
+      <!-- Benefits strip -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.75rem;">
+        <div style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-sm);padding:0.6rem 0.8rem;font-size:0.78rem;color:var(--color-muted);">
+          <span style="color:var(--color-primary);margin-right:0.4rem;">✓</span> Early access to drops
+        </div>
+        <div style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-sm);padding:0.6rem 0.8rem;font-size:0.78rem;color:var(--color-muted);">
+          <span style="color:var(--color-primary);margin-right:0.4rem;">✓</span> Exclusive discounts
+        </div>
+        <div style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-sm);padding:0.6rem 0.8rem;font-size:0.78rem;color:var(--color-muted);">
+          <span style="color:var(--color-primary);margin-right:0.4rem;">✓</span> Order tracking
+        </div>
+        <div style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-sm);padding:0.6rem 0.8rem;font-size:0.78rem;color:var(--color-muted);">
+          <span style="color:var(--color-primary);margin-right:0.4rem;">✓</span> Saved wishlists
+        </div>
+      </div>
+
+      <!-- Register Form -->
+      <form id="registerForm" novalidate aria-label="Create account form">
+
+        <!-- Name row -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div class="form-group">
+            <label class="form-label" for="regFirstName">First Name <span aria-label="required">*</span></label>
+            <input class="form-control"
+                   type="text"
+                   id="regFirstName"
+                   name="firstName"
+                   autocomplete="given-name"
+                   required
+                   aria-required="true"
+                   aria-describedby="firstNameErr"
+                   placeholder="Jane">
+            <span class="form-error" id="firstNameErr" data-error="firstName" role="alert" aria-live="polite"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="regLastName">Last Name <span aria-label="required">*</span></label>
+            <input class="form-control"
+                   type="text"
+                   id="regLastName"
+                   name="lastName"
+                   autocomplete="family-name"
+                   required
+                   aria-required="true"
+                   aria-describedby="lastNameErr"
+                   placeholder="Smith">
+            <span class="form-error" id="lastNameErr" data-error="lastName" role="alert" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label class="form-label" for="regEmail">Email Address <span aria-label="required">*</span></label>
+          <input class="form-control"
+                 type="email"
+                 id="regEmail"
+                 name="email"
+                 autocomplete="email"
+                 required
+                 aria-required="true"
+                 aria-describedby="regEmailErr"
+                 placeholder="you@example.com">
+          <span class="form-error" id="regEmailErr" data-error="email" role="alert" aria-live="polite"></span>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label class="form-label" for="regPassword">Password <span aria-label="required">*</span></label>
+          <div class="form-control--password-wrap">
+            <input class="form-control"
+                   type="password"
+                   id="regPassword"
+                   name="password"
+                   autocomplete="new-password"
+                   required
+                   aria-required="true"
+                   aria-describedby="passwordErr"
+                   placeholder="Min. 8 characters">
+            <button type="button" class="toggle-password" aria-label="Show password">👁</button>
+          </div>
+          <div class="password-strength" aria-hidden="true">
+            <div class="password-strength__bar"></div>
+          </div>
+          <p class="password-strength-label" aria-live="polite"></p>
+          <span class="form-error" id="passwordErr" data-error="password" role="alert" aria-live="polite"></span>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+          <label class="form-label" for="regConfirmPassword">Confirm Password <span aria-label="required">*</span></label>
+          <div class="form-control--password-wrap">
+            <input class="form-control"
+                   type="password"
+                   id="regConfirmPassword"
+                   name="confirmPassword"
+                   autocomplete="new-password"
+                   required
+                   aria-required="true"
+                   aria-describedby="confirmErr"
+                   placeholder="Repeat your password">
+            <button type="button" class="toggle-password" aria-label="Show password">👁</button>
+          </div>
+          <span class="form-error" id="confirmErr" data-error="confirmPassword" role="alert" aria-live="polite"></span>
+        </div>
+
+        <!-- Marketing consent -->
+        <div class="form-checkbox">
+          <input type="checkbox" id="marketingConsent" name="marketingConsent">
+          <label for="marketingConsent">I'd like to receive emails about new arrivals, exclusive offers and style inspiration. You can unsubscribe at any time.</label>
+        </div>
+
+        <!-- Terms -->
+        <div class="form-checkbox">
+          <input type="checkbox" id="termsConsent" name="termsConsent" required>
+          <label for="termsConsent">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. <span aria-label="required">*</span></label>
+        </div>
+
+        <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;padding:.9rem;margin-top:.25rem;">
+          <i class="fas fa-user-plus" aria-hidden="true"></i> Create My Account
+        </button>
+
+      </form>
+
+      <p style="font-size:0.75rem;color:var(--color-muted);margin-top:1.25rem;text-align:center;">
+        Your data is encrypted and never shared. See our <a href="#" style="color:var(--color-primary);">Privacy Policy</a>.
+      </p>
+
+    </div>
+  </main>
+
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

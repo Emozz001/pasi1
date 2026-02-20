@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — Velvet Vogue</title>
+  <meta name="description" content="Sign in to your Velvet Vogue account to access exclusive collections, track orders, and manage your profile.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <main id="main-content" class="auth-page">
+
+    <!-- Visual Panel -->
+    <div class="auth-visual" aria-hidden="true">
+      <div class="auth-visual__bg"></div>
+      <div class="auth-visual__content">
+        <p class="auth-visual__quote">"Style is a way to say who you are without having to speak."</p>
+        <p class="auth-visual__attr">— Rachel Zoe</p>
+      </div>
+    </div>
+
+    <!-- Form Panel -->
+    <div class="auth-form-side">
+      <a href="../index.html" class="auth-brand" aria-label="Return to Velvet Vogue homepage">Velvet Vogue</a>
+
+      <h1 class="auth-title">Welcome back</h1>
+      <p class="auth-sub">
+        Don't have an account? <a href="register.html">Create one free</a>
+      </p>
+
+      <!-- Social Sign-in -->
+      <a href="#" class="social-btn" aria-label="Continue with Google" onclick="return false;">
+        <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M46.3 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.5c-.5 2.8-2.2 5.1-4.6 6.7v5.5h7.4c4.3-4 6.8-9.9 6.8-16.2z"/><path fill="#34A853" d="M24 47c6.5 0 11.9-2.1 15.9-5.8l-7.4-5.5c-2.2 1.5-5 2.3-8.4 2.3-6.5 0-12-4.4-14-10.3H2.4v5.7C6.3 41.9 14.5 47 24 47z"/><path fill="#FBBC04" d="M10 27.7c-.5-1.5-.8-3-.8-4.7s.3-3.3.8-4.7v-5.7H2.4C.9 15.7 0 19.7 0 24s.9 8.3 2.4 11.4L10 27.7z"/><path fill="#EA4335" d="M24 9.5c3.6 0 6.8 1.2 9.3 3.6l7-7C36 2.1 30.5 0 24 0 14.5 0 6.3 5.1 2.4 12.6l7.6 5.7C12 12 17.5 9.5 24 9.5z"/></svg>
+        Continue with Google
+      </a>
+      <a href="#" class="social-btn" aria-label="Continue with Facebook" onclick="return false;">
+        <i class="fab fa-facebook-f" style="color:#1877F2;" aria-hidden="true"></i>
+        Continue with Facebook
+      </a>
+
+      <div class="auth-divider">or sign in with email</div>
+
+      <!-- Login Form -->
+      <form id="loginForm" novalidate aria-label="Sign in form">
+
+        <div class="form-group">
+          <label class="form-label" for="loginEmail">
+            Email Address <span aria-label="required">*</span>
+          </label>
+          <input class="form-control"
+                 type="email"
+                 id="loginEmail"
+                 name="email"
+                 autocomplete="email"
+                 required
+                 aria-required="true"
+                 aria-describedby="emailErr"
+                 placeholder="you@example.com">
+          <span class="form-error" id="emailErr" data-error="email" role="alert" aria-live="polite"></span>
+        </div>
+
+        <div class="form-group">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;">
+            <label class="form-label" for="loginPassword">
+              Password <span aria-label="required">*</span>
+            </label>
+            <a href="#" style="font-size:0.78rem;color:var(--color-primary);" onclick="return false;">Forgot password?</a>
+          </div>
+          <div class="form-control--password-wrap">
+            <input class="form-control"
+                   type="password"
+                   id="loginPassword"
+                   name="password"
+                   autocomplete="current-password"
+                   required
+                   aria-required="true"
+                   aria-describedby="passwordErr"
+                   placeholder="Your password">
+            <button type="button" class="toggle-password" aria-label="Show password">👁</button>
+          </div>
+          <span class="form-error" id="passwordErr" data-error="password" role="alert" aria-live="polite"></span>
+        </div>
+
+        <div class="form-checkbox">
+          <input type="checkbox" id="rememberMe" name="rememberMe">
+          <label for="rememberMe">Keep me signed in for 30 days</label>
+        </div>
+
+        <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;padding:.9rem;">
+          <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Sign In
+        </button>
+
+      </form>
+
+      <p style="font-size:0.78rem;color:var(--color-muted);margin-top:1.5rem;text-align:center;">
+        By signing in you agree to our
+        <a href="#" style="color:var(--color-primary);">Terms of Service</a> and
+        <a href="#" style="color:var(--color-primary);">Privacy Policy</a>.
+      </p>
+
+    </div>
+  </main>
+
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

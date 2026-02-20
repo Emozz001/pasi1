@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Velvet Vogue</title>
+  <meta name="description" content="Securely complete your Velvet Vogue order. Fast, safe checkout with multiple payment options.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Minimal checkout header -->
+  <header style="background:var(--color-surface);border-bottom:1px solid var(--color-border);padding:1rem 0;" role="banner">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
+      <a href="../index.html" class="navbar__brand">Velvet Vogue</a>
+      <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.78rem;color:var(--color-success);">
+        <i class="fas fa-lock" aria-hidden="true"></i>
+        <span>Secure Checkout</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="section" aria-label="Checkout">
+      <div class="container">
+        <div class="checkout-layout">
+
+          <!-- LEFT: form panels -->
+          <div>
+
+            <!-- Step indicators -->
+            <nav class="checkout-steps" aria-label="Checkout progress">
+              <div class="checkout-step done" data-step="1">
+                <span aria-hidden="true">1</span> Information
+              </div>
+              <div class="checkout-step active" data-step="2">
+                <span aria-hidden="true">2</span> Shipping
+              </div>
+              <div class="checkout-step" data-step="3">
+                <span aria-hidden="true">3</span> Payment
+              </div>
+              <div class="checkout-step" data-step="4">
+                <span aria-hidden="true">✓</span> Confirmation
+              </div>
+            </nav>
+
+            <!-- ─── STEP 1: Contact + Shipping Address ─── -->
+            <div class="checkout-panel" data-step="1">
+
+              <!-- Express checkout -->
+              <div style="display:flex;gap:0.75rem;margin-bottom:1.5rem;">
+                <button class="social-btn" style="flex:1;padding:.65rem;" onclick="return false;" aria-label="Express checkout with Apple Pay">
+                  <i class="fab fa-apple" aria-hidden="true"></i> Apple Pay
+                </button>
+                <button class="social-btn" style="flex:1;padding:.65rem;" onclick="return false;" aria-label="Express checkout with Google Pay">
+                  <svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M46.3 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.5c-.5 2.8-2.2 5.1-4.6 6.7v5.5h7.4c4.3-4 6.8-9.9 6.8-16.2z"/><path fill="#34A853" d="M24 47c6.5 0 11.9-2.1 15.9-5.8l-7.4-5.5c-2.2 1.5-5 2.3-8.4 2.3-6.5 0-12-4.4-14-10.3H2.4v5.7C6.3 41.9 14.5 47 24 47z"/><path fill="#FBBC04" d="M10 27.7c-.5-1.5-.8-3-.8-4.7s.3-3.3.8-4.7v-5.7H2.4C.9 15.7 0 19.7 0 24s.9 8.3 2.4 11.4L10 27.7z"/><path fill="#EA4335" d="M24 9.5c3.6 0 6.8 1.2 9.3 3.6l7-7C36 2.1 30.5 0 24 0 14.5 0 6.3 5.1 2.4 12.6l7.6 5.7C12 12 17.5 9.5 24 9.5z"/></svg>
+                  Google Pay
+                </button>
+                <button class="social-btn" style="flex:1;padding:.65rem;" onclick="return false;" aria-label="Express checkout with PayPal">
+                  <i class="fab fa-paypal" style="color:#003087;" aria-hidden="true"></i> PayPal
+                </button>
+              </div>
+              <div class="auth-divider" style="margin-bottom:1.5rem;">or pay by card</div>
+
+              <!-- Contact Section -->
+              <div class="checkout-section">
+                <h2 class="checkout-section__title">
+                  <span class="checkout-section__num">1</span> Contact Information
+                </h2>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                  <div class="form-group">
+                    <label class="form-label" for="chkFirstName">First Name <span aria-label="required">*</span></label>
+                    <input class="form-control" type="text" id="chkFirstName" name="chkFirstName" autocomplete="given-name" required placeholder="Jane">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="chkLastName">Last Name <span aria-label="required">*</span></label>
+                    <input class="form-control" type="text" id="chkLastName" name="chkLastName" autocomplete="family-name" required placeholder="Smith">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="chkEmail">Email <span aria-label="required">*</span></label>
+                  <input class="form-control" type="email" id="chkEmail" name="chkEmail" autocomplete="email" required placeholder="you@example.com">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="chkPhone">Phone (optional)</label>
+                  <input class="form-control" type="tel" id="chkPhone" name="chkPhone" autocomplete="tel" placeholder="+44 7700 000000">
+                </div>
+              </div>
+
+              <!-- Shipping Address Section -->
+              <div class="checkout-section">
+                <h2 class="checkout-section__title">
+                  <span class="checkout-section__num">2</span> Shipping Address
+                </h2>
+                <div class="form-group">
+                  <label class="form-label" for="chkAddress">Address <span aria-label="required">*</span></label>
+                  <input class="form-control" type="text" id="chkAddress" name="chkAddress" autocomplete="street-address" required placeholder="123 Fashion Avenue">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="chkAddress2">Apartment, Suite, etc. (optional)</label>
+                  <input class="form-control" type="text" id="chkAddress2" name="chkAddress2" placeholder="Apt 4B">
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                  <div class="form-group">
+                    <label class="form-label" for="chkCity">City <span aria-label="required">*</span></label>
+                    <input class="form-control" type="text" id="chkCity" name="chkCity" autocomplete="address-level2" required placeholder="London">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="chkPostcode">Postcode <span aria-label="required">*</span></label>
+                    <input class="form-control" type="text" id="chkPostcode" name="chkPostcode" autocomplete="postal-code" required placeholder="SW1A 1AA">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="chkCountry">Country <span aria-label="required">*</span></label>
+                  <select class="form-control" id="chkCountry" name="chkCountry" autocomplete="country" required>
+                    <option value="">Select country…</option>
+                    <option value="GB" selected>United Kingdom</option>
+                    <option value="LK">Sri Lanka</option>
+                    <option value="US">United States</option>
+                    <option value="AU">Australia</option>
+                    <option value="CA">Canada</option>
+                    <option value="AE">United Arab Emirates</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div class="form-checkbox">
+                  <input type="checkbox" id="saveAddress" name="saveAddress" checked>
+                  <label for="saveAddress">Save this address for future orders</label>
+                </div>
+              </div>
+
+              <button class="btn btn--primary" style="width:100%;justify-content:center;padding:.9rem;" data-go-step="2">
+                Continue to Shipping Method →
+              </button>
+
+            </div>
+
+            <!-- ─── STEP 2: Shipping Method ─── -->
+            <div class="checkout-panel" data-step="2" hidden>
+              <div class="checkout-section">
+                <h2 class="checkout-section__title">
+                  <span class="checkout-section__num">3</span> Shipping Method
+                </h2>
+
+                <div style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1.5rem;">
+                  <label style="display:flex;align-items:center;gap:1rem;background:var(--color-surface-2);border:2px solid var(--color-primary);border-radius:var(--radius-sm);padding:1rem;cursor:pointer;">
+                    <input type="radio" name="shippingMethod" value="standard" checked style="accent-color:var(--color-primary);">
+                    <div style="flex:1;">
+                      <p style="font-weight:600;color:var(--color-text);margin:0;">Standard Delivery</p>
+                      <p style="font-size:0.8rem;color:var(--color-muted);margin:0.2rem 0 0;">3–5 business days</p>
+                    </div>
+                    <span id="standardShippingPrice" style="font-weight:700;color:var(--color-primary);">Free</span>
+                  </label>
+
+                  <label style="display:flex;align-items:center;gap:1rem;background:var(--color-surface-2);border:2px solid var(--color-border);border-radius:var(--radius-sm);padding:1rem;cursor:pointer;">
+                    <input type="radio" name="shippingMethod" value="express" style="accent-color:var(--color-primary);">
+                    <div style="flex:1;">
+                      <p style="font-weight:600;color:var(--color-text);margin:0;">Express Delivery</p>
+                      <p style="font-size:0.8rem;color:var(--color-muted);margin:0.2rem 0 0;">Next working day (order before 1pm)</p>
+                    </div>
+                    <span style="font-weight:700;color:var(--color-primary);">£6.99</span>
+                  </label>
+
+                  <label style="display:flex;align-items:center;gap:1rem;background:var(--color-surface-2);border:2px solid var(--color-border);border-radius:var(--radius-sm);padding:1rem;cursor:pointer;">
+                    <input type="radio" name="shippingMethod" value="international" style="accent-color:var(--color-primary);">
+                    <div style="flex:1;">
+                      <p style="font-weight:600;color:var(--color-text);margin:0;">International Tracked</p>
+                      <p style="font-size:0.8rem;color:var(--color-muted);margin:0.2rem 0 0;">5–10 business days to most destinations</p>
+                    </div>
+                    <span style="font-weight:700;color:var(--color-primary);">£12.99</span>
+                  </label>
+                </div>
+
+                <div style="background:rgba(200,169,110,0.07);border:1px solid rgba(200,169,110,0.2);border-radius:var(--radius-sm);padding:1rem;font-size:0.83rem;color:var(--color-muted);">
+                  <i class="fas fa-info-circle" style="color:var(--color-primary);margin-right:0.4rem;" aria-hidden="true"></i>
+                  Orders placed before 1pm GMT Monday–Friday are dispatched the same day. You'll receive a tracking email once your order ships.
+                </div>
+              </div>
+
+              <div style="display:flex;gap:1rem;">
+                <button class="btn btn--ghost" style="flex:1;justify-content:center;" data-go-step="1">← Back</button>
+                <button class="btn btn--primary" style="flex:2;justify-content:center;padding:.9rem;" data-go-step="3">
+                  Continue to Payment →
+                </button>
+              </div>
+            </div>
+
+            <!-- ─── STEP 3: Payment ─── -->
+            <div class="checkout-panel" data-step="3" hidden>
+              <div class="checkout-section">
+                <h2 class="checkout-section__title">
+                  <span class="checkout-section__num">4</span> Payment Method
+                </h2>
+
+                <div class="payment-methods">
+                  <label class="payment-method selected">
+                    <input type="radio" name="paymentMethod" value="card" checked>
+                    <span class="payment-method__icon" aria-hidden="true"><i class="fas fa-credit-card"></i></span>
+                    <span class="payment-method__label">Credit / Debit Card</span>
+                  </label>
+                  <label class="payment-method">
+                    <input type="radio" name="paymentMethod" value="paypal">
+                    <span class="payment-method__icon" aria-hidden="true"><i class="fab fa-paypal" style="color:#003087;"></i></span>
+                    <span class="payment-method__label">PayPal</span>
+                  </label>
+                  <label class="payment-method">
+                    <input type="radio" name="paymentMethod" value="apple">
+                    <span class="payment-method__icon" aria-hidden="true"><i class="fab fa-apple"></i></span>
+                    <span class="payment-method__label">Apple Pay</span>
+                  </label>
+                  <label class="payment-method">
+                    <input type="radio" name="paymentMethod" value="google">
+                    <span class="payment-method__icon" aria-hidden="true"><i class="fab fa-google-pay"></i></span>
+                    <span class="payment-method__label">Google Pay</span>
+                  </label>
+                </div>
+
+                <!-- Card fields (shown when card is selected) -->
+                <div id="cardFields">
+                  <div class="card-icons" aria-label="Accepted cards">
+                    <span class="card-icon">VISA</span>
+                    <span class="card-icon">MC</span>
+                    <span class="card-icon">AMEX</span>
+                    <span class="card-icon">DISC</span>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="cardNumber">Card Number <span aria-label="required">*</span></label>
+                    <input class="form-control" type="text" id="cardNumber" name="cardNumber"
+                           autocomplete="cc-number" inputmode="numeric"
+                           placeholder="1234 5678 9012 3456" maxlength="19"
+                           aria-describedby="cardHelp">
+                    <span id="cardHelp" class="sr-only">Enter your 16-digit card number</span>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="cardName">Name on Card <span aria-label="required">*</span></label>
+                    <input class="form-control" type="text" id="cardName" name="cardName"
+                           autocomplete="cc-name" placeholder="Jane Smith">
+                  </div>
+
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                    <div class="form-group">
+                      <label class="form-label" for="cardExpiry">Expiry Date <span aria-label="required">*</span></label>
+                      <input class="form-control" type="text" id="cardExpiry" name="cardExpiry"
+                             autocomplete="cc-exp" inputmode="numeric"
+                             placeholder="MM/YY" maxlength="5">
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label" for="cardCvv">CVV <span aria-label="required">*</span></label>
+                      <input class="form-control" type="text" id="cardCvv" name="cardCvv"
+                             autocomplete="cc-csc" inputmode="numeric"
+                             placeholder="•••" maxlength="4"
+                             aria-describedby="cvvHelp">
+                      <span id="cvvHelp" style="font-size:0.73rem;color:var(--color-muted);margin-top:0.2rem;">3 digits on back of card (4 for Amex)</span>
+                    </div>
+                  </div>
+
+                  <div class="secure-badge">
+                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                    Your payment details are encrypted with 256-bit SSL
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Order notes -->
+              <div class="checkout-section">
+                <h2 class="checkout-section__title" style="font-size:1rem;">
+                  <span class="checkout-section__num" style="background:var(--color-surface-2);color:var(--color-muted);">5</span>
+                  Order Notes (optional)
+                </h2>
+                <textarea class="form-control" name="orderNotes" id="orderNotes" rows="3"
+                          placeholder="Gift message, special delivery instructions…"></textarea>
+              </div>
+
+              <div style="display:flex;gap:1rem;">
+                <button class="btn btn--ghost" style="flex:1;justify-content:center;" data-go-step="2">← Back</button>
+                <button id="placeOrderBtn" class="btn btn--primary" style="flex:2;justify-content:center;padding:.9rem;">
+                  <i class="fas fa-lock" aria-hidden="true"></i> Place Order
+                </button>
+              </div>
+
+            </div>
+
+            <!-- ─── STEP 4: Confirmation ─── -->
+            <div class="checkout-panel" data-step="4" hidden>
+              <div class="order-success">
+                <div class="order-success__icon" aria-hidden="true">
+                  <i class="fas fa-check"></i>
+                </div>
+                <h2 style="font-family:var(--font-display);font-size:2.2rem;margin-bottom:0.5rem;">Order Confirmed!</h2>
+                <p class="text-muted" style="margin-bottom:0.5rem;">Thank you for shopping with Velvet Vogue.</p>
+                <p style="font-size:0.88rem;color:var(--color-muted);margin-bottom:1.5rem;">
+                  Your order reference is:
+                  <strong id="orderNumber" style="color:var(--color-primary);font-size:1rem;display:block;margin-top:0.3rem;letter-spacing:0.1em;">VV-XXXXXX</strong>
+                </p>
+                <p style="font-size:0.88rem;color:var(--color-muted);max-width:400px;margin:0 auto 2rem;">
+                  A confirmation email will be sent to you shortly with your tracking information. Expected delivery: 3–5 business days.
+                </p>
+                <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                  <a href="../index.html" class="btn btn--primary">Continue Shopping</a>
+                  <a href="services.html" class="btn btn--outline">View New Arrivals</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT: Order summary sidebar -->
+          <aside aria-label="Order summary" style="position:sticky;top:calc(var(--nav-height) + 1rem);">
+            <div class="order-summary-box">
+              <h2 style="font-size:1.2rem;margin-bottom:1.25rem;">Order Summary</h2>
+
+              <!-- Order items (rendered by JS) -->
+              <div id="checkoutOrderItems" aria-label="Items in your order"></div>
+
+              <div style="margin-top:1rem;">
+                <div class="summary-line"><span>Subtotal</span><span id="checkoutSubtotal">—</span></div>
+                <div class="summary-line"><span>Shipping</span><span id="checkoutShipping">—</span></div>
+                <div class="summary-line summary-line--total"><span>Total</span><span id="checkoutTotal">—</span></div>
+              </div>
+
+              <!-- Promo on checkout -->
+              <div style="margin-top:1rem;">
+                <div style="display:flex;gap:0.5rem;">
+                  <input class="form-control" type="text" placeholder="Promo code"
+                         id="checkoutPromo" style="font-size:0.82rem;padding:.5rem .75rem;text-transform:uppercase;">
+                  <button class="btn btn--outline btn--sm" onclick="
+                    const code = document.getElementById('checkoutPromo').value.trim().toUpperCase();
+                    if(code==='VOGUE15'){showToast('15% discount applied!','success');}
+                    else{showToast('Invalid promo code.','error');}">Apply</button>
+                </div>
+              </div>
+
+              <!-- Trust -->
+              <div style="margin-top:1.25rem;display:flex;flex-direction:column;gap:0.5rem;">
+                <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.77rem;color:var(--color-muted);">
+                  <i class="fas fa-lock" style="color:var(--color-success);" aria-hidden="true"></i> 256-bit SSL Encryption
+                </div>
+                <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.77rem;color:var(--color-muted);">
+                  <i class="fas fa-undo" style="color:var(--color-primary);" aria-hidden="true"></i> 30-Day Free Returns
+                </div>
+                <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.77rem;color:var(--color-muted);">
+                  <i class="fas fa-headset" style="color:var(--color-primary);" aria-hidden="true"></i> 24/7 Customer Support
+                </div>
+              </div>
+
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background:var(--color-surface);border-top:1px solid var(--color-border);padding:1.25rem 0;margin-top:2rem;" role="contentinfo">
+    <div class="container" style="text-align:center;font-size:0.78rem;color:var(--color-muted);">
+      <p>© 2025 Velvet Vogue. All rights reserved. &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms</a></p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

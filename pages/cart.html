@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Bag — Velvet Vogue</title>
+  <meta name="description" content="Review and manage the items in your Velvet Vogue shopping bag before proceeding to checkout.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="announcement-bar" role="banner" aria-label="Promotional announcement">
+    <div class="announcement-bar__track" aria-hidden="true">
+      <span>🎉 15% OFF sitewide — Use code VOGUE15 &nbsp;✦&nbsp; Free shipping over £60 &nbsp;✦&nbsp; 30-day returns</span>
+      <span>🎉 15% OFF sitewide — Use code VOGUE15 &nbsp;✦&nbsp; Free shipping over £60 &nbsp;✦&nbsp; 30-day returns</span>
+    </div>
+  </div>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar__inner">
+      <a href="../index.html" class="navbar__brand">Velvet Vogue</a>
+      <button class="navbar__hamburger" aria-expanded="false" aria-controls="mainNav" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="navbar__nav-wrap" id="mainNav">
+        <ul class="navbar__nav" role="list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="navbar__actions" style="display:flex;align-items:center;gap:0.6rem;">
+        <a href="login.html" class="btn btn--ghost btn--sm" data-auth-link>Login</a>
+        <button class="btn btn--ghost btn--sm" style="position:relative;" data-open-cart aria-label="Open bag">
+          <i class="fas fa-shopping-bag" aria-hidden="true"></i>
+          <span class="cart-badge" hidden>0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Cart Drawer -->
+  <div id="cartOverlay" class="cart-overlay"></div>
+  <aside id="cartDrawer" class="cart-drawer" aria-hidden="true" aria-label="Shopping bag">
+    <div class="cart-drawer__header">
+      <h2 class="cart-drawer__title">Your Bag <span id="cartDrawerCount" class="cart-drawer__count"></span></h2>
+      <button id="cartClose" class="cart-close" aria-label="Close">✕</button>
+    </div>
+    <div class="cart-drawer__body" id="cartDrawerBody" role="list"></div>
+    <div class="cart-drawer__footer" id="cartDrawerFooter" style="display:none;"></div>
+  </aside>
+
+  <main id="main-content">
+
+    <div class="page-hero">
+      <div class="container">
+        <p class="page-hero__eyebrow">Shopping</p>
+        <h1 class="page-hero__title">Your Bag</h1>
+      </div>
+    </div>
+
+    <section class="section" aria-label="Cart contents">
+      <div class="container">
+
+        <!-- Empty State -->
+        <div id="cartEmptyState" style="text-align:center;padding:5rem 1rem;">
+          <div style="font-size:4rem;opacity:0.2;color:var(--color-primary);margin-bottom:1.5rem;" aria-hidden="true">🛍</div>
+          <h2 style="font-size:1.8rem;margin-bottom:0.75rem;">Your bag is empty</h2>
+          <p class="text-muted" style="margin-bottom:2rem;max-width:360px;margin-left:auto;margin-right:auto;">Looks like you haven't added anything yet. Browse our curated collections to find your perfect piece.</p>
+          <a href="services.html" class="btn btn--primary">Continue Shopping</a>
+        </div>
+
+        <!-- Cart Content (shown when items exist) -->
+        <div id="cartContent" hidden>
+          <div class="cart-page-layout">
+
+            <!-- Left: items table -->
+            <div>
+              <table class="cart-table" aria-label="Items in your shopping bag">
+                <thead>
+                  <tr>
+                    <th scope="col">Product</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Total</th>
+                  </tr>
+                </thead>
+                <tbody id="cartTableBody">
+                  <!-- Rendered by JS -->
+                </tbody>
+              </table>
+
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;flex-wrap:wrap;gap:1rem;">
+                <a href="services.html" class="btn btn--ghost btn--sm">
+                  ← Continue Shopping
+                </a>
+                <button onclick="Cart.clear()" class="btn btn--ghost btn--sm" style="color:var(--color-error);border-color:var(--color-error);">
+                  Clear Bag
+                </button>
+              </div>
+            </div>
+
+            <!-- Right: Order Summary -->
+            <aside class="order-summary-box" aria-label="Order summary">
+              <h2>Order Summary</h2>
+
+              <div class="summary-line">
+                <span>Subtotal</span>
+                <span id="summarySubtotal">—</span>
+              </div>
+              <div class="summary-line">
+                <span>Shipping</span>
+                <span id="summaryShipping">—</span>
+              </div>
+              <!-- Promo savings row (hidden until code applied) -->
+              <div class="summary-line" id="promoSavingsRow" hidden>
+                <span style="color:var(--color-success);">Promo Discount</span>
+                <span style="color:var(--color-success);" id="promoSavingsAmt">—</span>
+              </div>
+              <div class="summary-line summary-line--total">
+                <span>Total</span>
+                <span id="summaryTotal">—</span>
+              </div>
+
+              <!-- Promo code -->
+              <form id="promoForm" novalidate style="margin-top:1rem;">
+                <label for="promoCode" class="form-label">Promo Code</label>
+                <div class="promo-input-row">
+                  <input class="form-control" type="text" id="promoCode" name="promoCode"
+                         placeholder="e.g. VOGUE15" autocomplete="off" style="text-transform:uppercase;">
+                  <button type="submit" class="btn btn--outline btn--sm" style="white-space:nowrap;">Apply</button>
+                </div>
+                <p style="font-size:0.74rem;color:var(--color-muted);">Try code <strong style="color:var(--color-primary);">VOGUE15</strong> for 15% off!</p>
+              </form>
+
+              <a href="checkout.html" class="btn btn--primary" style="width:100%;justify-content:center;margin-top:1.25rem;padding:.9rem;">
+                Proceed to Checkout →
+              </a>
+
+              <!-- Trust badges -->
+              <div style="display:flex;gap:1rem;margin-top:1.25rem;justify-content:center;flex-wrap:wrap;">
+                <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.74rem;color:var(--color-muted);">
+                  <i class="fas fa-lock" style="color:var(--color-success);" aria-hidden="true"></i> Secure Checkout
+                </div>
+                <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.74rem;color:var(--color-muted);">
+                  <i class="fas fa-undo" style="color:var(--color-primary);" aria-hidden="true"></i> Free Returns
+                </div>
+                <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.74rem;color:var(--color-muted);">
+                  <i class="fas fa-shipping-fast" style="color:var(--color-primary);" aria-hidden="true"></i> Fast Delivery
+                </div>
+              </div>
+
+              <!-- Payment icons -->
+              <div style="display:flex;gap:0.5rem;justify-content:center;margin-top:1rem;">
+                <div class="card-icon">VISA</div>
+                <div class="card-icon">MC</div>
+                <div class="card-icon">AMEX</div>
+                <div class="card-icon">PayPal</div>
+                <div class="card-icon">Apple Pay</div>
+              </div>
+            </aside>
+
+          </div>
+
+          <!-- You May Also Like -->
+          <div style="margin-top:4rem;">
+            <p class="section-eyebrow">Complete the Look</p>
+            <h2 style="margin-bottom:0.5rem;">You May Also Like</h2>
+            <span class="divider"></span>
+            <div class="product-grid" style="margin-top:1.5rem;">
+
+              <article class="card product-card" data-product-card>
+                <div class="product-card__img">
+                  <img src="../images/product-1.jpg" alt="Midnight Velvet Blazer" loading="lazy">
+                  <span class="product-card__badge">New</span>
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__name">Midnight Velvet Blazer</h3>
+                  <div style="margin-bottom:.75rem;">
+                    <select class="form-control" style="padding:.4rem .6rem;font-size:.82rem;" data-size-select>
+                      <option value="">Select size</option>
+                      <option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option>
+                    </select>
+                  </div>
+                  <div class="product-card__add">
+                    <span class="product-card__price">£129.00</span>
+                    <button class="btn btn--outline btn--sm" data-add-to-cart="prod-001" data-name="Midnight Velvet Blazer" data-price="129.00" data-image="product-1.jpg">Add to Bag</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card product-card" data-product-card>
+                <div class="product-card__img">
+                  <img src="../images/product-2.jpg" alt="Silk Flow Dress" loading="lazy">
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__name">Silk Flow Dress</h3>
+                  <div style="margin-bottom:.75rem;">
+                    <select class="form-control" style="padding:.4rem .6rem;font-size:.82rem;" data-size-select>
+                      <option value="">Select size</option>
+                      <option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option>
+                    </select>
+                  </div>
+                  <div class="product-card__add">
+                    <span class="product-card__price">£89.00</span>
+                    <button class="btn btn--outline btn--sm" data-add-to-cart="prod-002" data-name="Silk Flow Dress" data-price="89.00" data-image="product-2.jpg">Add to Bag</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card product-card" data-product-card>
+                <div class="product-card__img">
+                  <img src="../images/product-4.jpg" alt="Gold Chain Tote" loading="lazy">
+                  <span class="product-card__badge">Bestseller</span>
+                </div>
+                <div class="product-card__body">
+                  <h3 class="product-card__name">Gold Chain Tote</h3>
+                  <div style="margin-bottom:.75rem;">
+                    <select class="form-control" style="padding:.4rem .6rem;font-size:.82rem;" data-size-select>
+                      <option value="One Size" selected>One Size</option>
+                    </select>
+                  </div>
+                  <div class="product-card__add">
+                    <span class="product-card__price">£175.00</span>
+                    <button class="btn btn--outline btn--sm" data-add-to-cart="prod-004" data-name="Gold Chain Tote" data-price="175.00" data-image="product-4.jpg">Add to Bag</button>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__bottom" style="justify-content:center;">
+        <p>© 2025 Velvet Vogue. All rights reserved. &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+</body>
+</html>
